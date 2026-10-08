@@ -11,8 +11,24 @@
  *        Iterá con puntero (char **arg), no con indice entero.
  */
 
+#include <stdio.h>
+#include "String.h"
+
 int main(int argc, char *argv[]) {
-    (void)argc; (void)argv;
-    /* TODO */
+    if (argc < 2) {
+        printf("1\n");
+        return 0;
+    }
+
+    int todosSonIguales = 1;
+
+    for (char **arg = argv + 2; *arg != NULL; arg++) {
+        if (!AreEqual(argv[1], *arg)) {
+            todosSonIguales = 0;
+            break;
+        }
+    }
+
+    printf("%d\n", todosSonIguales);
     return 0;
 }
